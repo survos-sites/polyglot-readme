@@ -44,7 +44,7 @@
         "symfony/yaml": "7.0.*",
         "twig/extra-bundle": "^2.12|^3.0",
         "twig/twig": "^2.12|^3.0",
-        "webfactory/polyglot-bundle": "dev-master"
+        "webfactory/polyglot-bundle": "^4.0"
     },
     "config": {
         "allow-plugins": {
