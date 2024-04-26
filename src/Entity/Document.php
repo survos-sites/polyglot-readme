@@ -7,6 +7,7 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use Webfactory\Bundle\PolyglotBundle\Attribute as Polyglot;
+use Webfactory\Bundle\PolyglotBundle\Translatable;
 use Webfactory\Bundle\PolyglotBundle\TranslatableInterface;
 
 #[Polyglot\Locale(primary: "en_GB")]
@@ -34,14 +35,14 @@ class Document
     #[ORM\Column(type: 'translatable_string')]
     private TranslatableInterface $text;
 
-    public function __construct()
+    public function __construct(string $text)
     {
-        // ...
+        $this->text = new Translatable($text, 'en_GB');
         $this->translations = new ArrayCollection();
     }
 
-    public function getText(): string
+    public function getText(): TranslatableInterface
     {
-        return $this->text->translate();
+        return $this->text;
     }
 }
