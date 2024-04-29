@@ -25,7 +25,7 @@ class Document
     }
 
     #[Polyglot\TranslationCollection]
-    #[ORM\OneToMany(targetEntity: DocumentTranslation::class, mappedBy: 'entity')]
+    #[ORM\OneToMany(targetEntity: DocumentTranslation::class, mappedBy: 'document')]
     private Collection $translations;
 
     /**

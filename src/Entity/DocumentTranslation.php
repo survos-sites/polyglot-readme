@@ -8,7 +8,7 @@ use Webfactory\Bundle\PolyglotBundle\Attribute as Polyglot;
 use Webfactory\Bundle\PolyglotBundle\TranslatableInterface;
 
 #[ORM\Table]
-#[ORM\UniqueConstraint(columns: ['entity_id', 'locale'])]
+#[ORM\UniqueConstraint(columns: ['document_id', 'locale'])]
 #[ORM\Entity]
 class DocumentTranslation
 {
@@ -22,7 +22,7 @@ class DocumentTranslation
     private string $locale;
 
     #[ORM\ManyToOne(targetEntity: Document::class, inversedBy: 'translations')]
-    private Document $entity;
+    private Document $document;
 
     public function getLocale(): string
     {
